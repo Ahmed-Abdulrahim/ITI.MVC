@@ -2,6 +2,7 @@ using ITI.MVC.BLL.Interface;
 using ITI.MVC.BLL.Repo;
 using ITI.MVC.DAL.Context;
 using ITI.MVC.DAL.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 namespace ITI.MVC.PL
 {
@@ -17,11 +18,17 @@ namespace ITI.MVC.PL
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Conn1"));
             });
-
+            builder.Services.AddIdentity<AppUser, IdentityRole>()
+                .AddEntityFrameworkStores<SchoolDBContext>();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.ConfigureApplicationCookie(config=>
+            config.LoginPath="/Account/SignIn"
+            );
 
             var app = builder.Build();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

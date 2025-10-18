@@ -1,0 +1,330 @@
+﻿/* Reset (basic) */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: "Roboto", "Poppins", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Page background: soft sky/teal gradient */
+body {
+    background: linear-gradient(135deg, #e9fbff 0%, #f4fdff 50%, #f9fcff 100%);
+    color: #223;
+}
+
+/* Center the wrapper exactly center */
+.page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Form wrapper constraints */
+.form-wrapper {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+/* Title */
+.form-title {
+    font-size: 1.6rem;
+    margin: 0 0 18px 0;
+    color: #0b6b77; /* teal tone */
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Card */
+.card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 8px 30px rgba(10, 60, 70, 0.08);
+    border: 1px solid rgba(15, 90, 100, 0.04);
+}
+
+/* Form layout */
+.signup-form {
+    display: block;
+}
+
+/* Each field: label + input share same width exact */
+.field {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+    /* Labels */
+    .field label {
+        display: block;
+        font-size: 13px;
+        color: #315158;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+/* Inputs: exact consistent dimensions */
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form input[type="password"] {
+    width: 100%;
+    height: 44px; /* fixed height for perfect alignment */
+    padding: 10px 12px;
+    font-size: 14px;
+    color: #133;
+    border-radius: 10px;
+    border: 1px solid #d7eef2;
+    background: linear-gradient(180deg, #fff 0%, #fbfeff 100%);
+    transition: box-shadow 180ms ease, border-color 180ms ease, transform 120ms ease;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+    /* Focus state consistent */
+    .signup-form input[type="text"]:focus,
+    .signup-form input[type="email"]:focus,
+    .signup-form input[type="password"]:focus {
+        border-color: #34b8c8;
+        box-shadow: 0 6px 18px rgba(52, 184, 200, 0.12);
+    }
+
+/* Checkbox row: use same visual rhythm */
+.checkbox-field {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+/* Label that contains checkbox */
+.checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #224;
+    user-select: none;
+}
+
+/* Native checkbox hidden and custom look */
+.checkbox {
+    width: 18px;
+    height: 18px;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 4px;
+    border: 1.5px solid #cfeff3;
+    background: #fff;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.02);
+    transition: all 160ms ease;
+}
+
+    /* checked state */
+    .checkbox:checked {
+        background: linear-gradient(180deg, #00c2d9 0%, #00a8c0 100%);
+        border-color: #00a8c0;
+    }
+
+        /* checkmark */
+        .checkbox:checked::after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            width: 5px;
+            height: 9px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+/* Checkbox text */
+.checkbox-text {
+    color: #3b5a5d;
+}
+
+/* Submit button (match chosen turquoise/ska) */
+.btn {
+    width: 100%;
+    height: 46px;
+    background: linear-gradient(180deg, #00c2d9 0%, #00a8c0 100%);
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0, 170, 190, 0.14);
+    }
+
+/* Login note centered under card */
+.login-note {
+    margin-top: 14px;
+    font-size: 14px;
+    color: #376168;
+}
+
+.login-link {
+    color: #007f8a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Small footer */
+copyright, .copyright {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #556;
+    text-align: center;
+    padding-top: 8px;
+}
+
+/* Decorative bubbles (subtle, behind) */
+.bubbles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+    .bubbles li {
+        position: absolute;
+        display: block;
+        list-style: none;
+        background: rgba(0, 180, 200, 0.06);
+        border-radius: 50%;
+    }
+
+        /* distribute 10 bubbles with sizes and offsets */
+        .bubbles li:nth-child(1) {
+            width: 40px;
+            height: 40px;
+            left: 6%;
+            bottom: -40px;
+            animation: floaty 20s linear infinite;
+        }
+
+        .bubbles li:nth-child(2) {
+            width: 80px;
+            height: 80px;
+            left: 20%;
+            bottom: -60px;
+            animation: floaty 18s linear 2s infinite;
+        }
+
+        .bubbles li:nth-child(3) {
+            width: 30px;
+            height: 30px;
+            left: 28%;
+            bottom: -28px;
+            animation: floaty 22s linear 4s infinite;
+        }
+
+        .bubbles li:nth-child(4) {
+            width: 60px;
+            height: 60px;
+            left: 40%;
+            bottom: -60px;
+            animation: floaty 24s linear 1s infinite;
+        }
+
+        .bubbles li:nth-child(5) {
+            width: 36px;
+            height: 36px;
+            left: 70%;
+            bottom: -40px;
+            animation: floaty 20s linear 3s infinite;
+        }
+
+        .bubbles li:nth-child(6) {
+            width: 120px;
+            height: 120px;
+            left: 80%;
+            bottom: -80px;
+            animation: floaty 26s linear 3s infinite;
+        }
+
+        .bubbles li:nth-child(7) {
+            width: 160px;
+            height: 160px;
+            left: 32%;
+            bottom: -140px;
+            animation: floaty 28s linear 7s infinite;
+        }
+
+        .bubbles li:nth-child(8) {
+            width: 20px;
+            height: 20px;
+            left: 55%;
+            bottom: -18px;
+            animation: floaty 34s linear 15s infinite;
+        }
+
+        .bubbles li:nth-child(9) {
+            width: 14px;
+            height: 14px;
+            left: 25%;
+            bottom: -14px;
+            animation: floaty 30s linear 2s infinite;
+        }
+
+        .bubbles li:nth-child(10) {
+            width: 160px;
+            height: 160px;
+            left: 90%;
+            bottom: -120px;
+            animation: floaty 22s linear 11s infinite;
+        }
+
+@keyframes floaty {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-800px) rotate(600deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive tweaks */
+@media (max-width: 520px) {
+    .form-wrapper {
+        max-width: 92%;
+    }
+
+    .card {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .field label {
+        font-size: 13px;
+    }
+
+    .btn {
+        height: 44px;
+        font-size: 15px;
+    }
+}

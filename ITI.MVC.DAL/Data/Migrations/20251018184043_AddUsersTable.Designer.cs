@@ -4,16 +4,19 @@ using ITI.MVC.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace ITI.MVC.DAL.Context.Migrations
+namespace ITI.MVC.DAL.Data.Migrations
 {
     [DbContext(typeof(SchoolDBContext))]
-    partial class SchoolDBContextModelSnapshot : ModelSnapshot
+    [Migration("20251018184043_AddUsersTable")]
+    partial class AddUsersTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,10 +1,12 @@
 ﻿using ITI.MVC.BLL.Interface;
 using ITI.MVC.BLL.Repo;
 using ITI.MVC.DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ITI.MVC.PL.Controllers
 {
+    [Authorize]
     public class StudentController : Controller
     {
         private readonly IEntityType<Student> studentRepo;

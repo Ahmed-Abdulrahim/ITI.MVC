@@ -1,10 +1,12 @@
 ﻿using ITI.MVC.BLL.Interface;
 using ITI.MVC.DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace ITI.MVC.PL.Controllers
 {
+    [Authorize]
     public class DepartmentController : Controller
     {
         private readonly IEntityType<Department> departmentRepo;

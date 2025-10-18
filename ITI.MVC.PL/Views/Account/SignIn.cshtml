@@ -1,0 +1,49 @@
+﻿@model SignInDto
+@{
+    ViewData["Title"] = "SignIn";
+    Layout = "~/Views/Shared/_AuthLayOut.cshtml";
+}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-sm border-0" style="max-width: 400px; width: 100%; border-radius: 1rem;">
+        <div class="card-body p-4">
+            <h4 class="text-center mb-4 text-info fw-semibold">Sign In</h4>
+
+            <form asp-action="SignIn" method="post" class="text-start">
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                    <span asp-validation-for="Email" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control" placeholder="Enter password" />
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input asp-for="RememberMe" class="form-check-input" />
+                    <label asp-for="RememberMe" class="form-check-label">
+                        RememberMe
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-info w-100 text-white fw-semibold">
+                    Sign In
+                </button>
+            </form>
+            <p class="text-center mt-3 text-secondary">
+                Don't have an account?
+                <a asp-action="SignUp" class="text-info fw-semibold text-decoration-none">SignUp now!</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+@section ValidateData {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+

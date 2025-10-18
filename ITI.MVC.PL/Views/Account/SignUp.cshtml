@@ -1,0 +1,73 @@
+﻿@model SignUpDto
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_AuthLayOut.cshtml";
+}
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-sm border-0" style="max-width: 400px; width: 100%; border-radius: 1rem;">
+        <div class="card-body p-4">
+            <h4 class="text-center mb-4 text-info fw-semibold">Create Account</h4>
+
+            <form asp-action="SignUp" method="post" class="text-start">
+             
+                <div class="mb-3">
+                    <label asp-for="UserName" class="form-label"></label>
+                    <input asp-for="UserName" class="form-control" placeholder="Enter your username" />
+                    <span asp-validation-for="UserName" class="text-danger small"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="FirstName" class="form-label"></label>
+                    <input asp-for="FirstName" class="form-control" placeholder="Enter your First Name" />
+                    <span asp-validation-for="FirstName" class="text-danger small"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="LastName" class="form-label"></label>
+                    <input asp-for="LastName" class="form-control" placeholder="Enter your Last Name" />
+                    <span asp-validation-for="LastName" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                    <span asp-validation-for="Email" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" class="form-control" placeholder="Enter password" />
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ConfirmPassword" class="form-label"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input asp-for="IsAgree" class="form-check-input" />
+                    <label asp-for="IsAgree" class="form-check-label">
+                        I Agree to the Terms &amp; Conditions
+                    </label>
+                    <span asp-validation-for="IsAgree" class="text-danger small d-block"></span>
+                </div>
+
+                <button type="submit" class="btn btn-info w-100 text-white fw-semibold">
+                    Sign Up
+                </button>
+            </form>
+
+            <p class="text-center mt-3 text-secondary">
+                Already have an account?
+                <a asp-action="SignIn" class="text-info fw-semibold text-decoration-none">Login now!</a>
+            </p>
+        </div>
+    </div>
+</div>
+@section ValidateData {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+
