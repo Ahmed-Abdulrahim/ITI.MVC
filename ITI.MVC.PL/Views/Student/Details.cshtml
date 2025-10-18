@@ -1,0 +1,31 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<form>
+    <div class="my-3">
+        <label asp-for="Name" class="col-form-label"></label>
+        <input asp-for="Name" class="form-control" readonly />
+    </div>
+    <div class="my-3">
+        <label asp-for="Age" class="col-form-label"></label>
+        <input asp-for="Age" class="form-control" readonly />
+    </div>
+    <div class="my-3">
+        <label asp-for="Email" class="col-form-label"></label>
+        <input asp-for="Email" class="form-control" readonly />
+    </div>
+    <div class="my-3">
+        <label asp-for="Departments" class="col-form-label"></label>
+        <input asp-for="Departments.Name" class="form-control" readonly />
+    </div>
+    <div>
+        <a asp-action="Index" class="btn btn-success m-5">Back To List</a>
+    </div>
+
+</form>
+
+
+

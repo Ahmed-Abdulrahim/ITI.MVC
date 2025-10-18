@@ -1,3 +1,8 @@
+using ITI.MVC.BLL.Interface;
+using ITI.MVC.BLL.Repo;
+using ITI.MVC.DAL.Context;
+using ITI.MVC.DAL.Models;
+using Microsoft.EntityFrameworkCore;
 namespace ITI.MVC.PL
 {
     public class Program
@@ -5,6 +10,13 @@ namespace ITI.MVC.PL
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddScoped<IEntityType<Department> , DepartmentRepo>();
+            builder.Services.AddScoped<IEntityType<Student>, StudentRepo>();
+
+            builder.Services.AddDbContext<SchoolDBContext>(options => 
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Conn1"));
+            });
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
