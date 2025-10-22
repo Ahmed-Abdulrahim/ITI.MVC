@@ -1,0 +1,26 @@
+﻿
+@model RoleDto
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+<form asp-action="Edit">
+    <div class="my-3">
+        <label asp-for="Name" class="col-form-label"></label>
+        <input asp-for="Name" class="form-control" readonly />
+        
+    </div>
+    <div>
+        <a asp-action="AddOrRemoveUser" asp-route-id="@Model.Id" class="btn btn-success m-5">AddOrRemoveUser</a>
+        <a asp-action="Index" class="btn btn-success m-5">Back To List</a>
+    </div>
+
+</form>
+
+@section ValidateData {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+

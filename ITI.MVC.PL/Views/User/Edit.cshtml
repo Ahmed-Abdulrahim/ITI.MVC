@@ -1,0 +1,35 @@
+﻿@model UserRoleDto
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+<form asp-action="Edit">
+    
+    <div class="my-3">
+        <label asp-for="userName" class="col-form-label"></label>
+        <input asp-for="userName" class="form-control"  />
+    </div>
+    <div class="my-3">
+        <label asp-for="FirstName" class="col-form-label"></label>
+        <input asp-for="FirstName" class="form-control"  />
+    </div>
+    <div class="my-3">
+        <label asp-for="LastName" class="col-form-label"></label>
+        <input asp-for="LastName" class="form-control"  />
+    </div>
+     <div class="my-3">
+        <label asp-for="Email" class="col-form-label"></label>
+        <input asp-for="Email" class="form-control"  />
+    </div>
+    <div>
+        <input type="submit" class="btn btn-success m-5" value="Update" />
+    </div>
+    <div>
+        <a asp-action="Index" class="btn btn-success m-5">Back To List</a>
+    </div>
+
+
+</form>
+

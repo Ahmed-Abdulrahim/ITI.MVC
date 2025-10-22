@@ -1,0 +1,22 @@
+﻿@model RoleDto
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+<form>
+    <div class="my-3">
+        <label asp-for="Id" class="col-form-label"></label>
+        <input asp-for="Id" class="form-control" readonly />
+    </div>
+    <div class="my-3">
+        <label asp-for="Name" class="col-form-label"></label>
+        <input asp-for="Name" class="form-control" readonly />
+    </div>
+    <div>
+        <a asp-action="Index" class="btn btn-success m-5">Back To List</a>
+    </div>
+
+</form>
+
